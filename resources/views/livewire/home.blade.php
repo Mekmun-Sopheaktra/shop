@@ -59,36 +59,22 @@
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
-                                        <div class="product-category flex gap-2 mb-2">
-                                            @foreach ($p->categories as $index => $cat)
-                                                @if ($index < 4)
-                                                    <a class="bg-orange-400 py-1 px-2 text-white font-semibold rounded-full"
-                                                        href="/?{{ http_build_query(array_merge(request()->query(), ['category' => $cat->slug])) }}"
-                                                        rel="tag">{{ $cat->name }}</a>
-                                                @endif
-                                            @endforeach
+                                        <div class="text-xs text-center border rounded-3xl border-black bg-black text-white p-2">
+                                            {{$p->brief_description}}
                                         </div>
-                                        <h2>
-                                            <a href="{{ route('product.details', $p->id) }}"
-                                                class="text-xl">
-                                                {{ strlen($p->name) > 20 ? substr($p->name, 0, 17) . '...': $p->name }}
+                                        <h2 class="text-center mt-3">
+                                            <a href="{{ route('product.details', $p->id) }}" class="text-lg">
+                                                {{ $p->name }}
                                             </a>
                                         </h2>
                                         <div class="flex items-center justify-between">
-                                            <div class="">
-                                                <p class="text-xl font-bold text-orange-500">${{ $p->price }}</p>
+                                            <div class="d-flex items-center gap-2 mx-auto">
                                                 <p class="text-md line-through opacity-50">${{ $p->old_price }}</p>
+                                                <p class="text-xl font-bold text-orange-500">${{ $p->price }}</p>
                                             </div>
-                                            <div class="show flex justify-end mt-3">
-                                                <form action="{{ route('cart.add') }}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id" value="{{ $p->id }}">
-                                                    <a onclick="this.closest('form').submit()" class="text-orange-500 hover:text-black duration-100">
-                                                        {{-- Add to cart --}}
-                                                        <i class="fi-rs-shopping-cart-add text-3xl"></i>
-                                                    </a>
-                                                </form>
-                                            </div>
+                                        </div>
+                                        <div class="text-start text-lg mt-3">
+                                            {!!$p->description!!}
                                         </div>
                                     </div>
                                 </div>
