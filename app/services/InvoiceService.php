@@ -11,9 +11,9 @@ class InvoiceService {
         $client = new Party([
             'name'          => 'Shopi',
             'custom_fields' => [
-                'seller'        => 'Youssef El Aissaoui',
-                'phone'         => '+(212) 682860421',
-                'email'         => 'yusufisawi@gmail.com',
+                'seller'        => 'MSPT',
+                'phone'         => '+(855) 92772440',
+                'email'         => 'sopheaktra334gmail.com',
             ],
         ]);
 

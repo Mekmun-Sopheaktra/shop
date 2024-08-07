@@ -12,9 +12,9 @@
                 </div>
                 <div>
                     <p class="text-orange-600 font-semibold">SHOPI</p>
-                    <p>Tetouan Shore, ISMO</p>
-                    <p>Tetouan</p>
-                    <p>yusufisawi@gmail.com</p>
+                    <p>Phnom Penh</p>
+                    <p>Cambodia</p>
+                    <p>sopheaktra334@gmail.com</p>
                 </div>
             </header>
             <div class="mb-8 text-lg">
