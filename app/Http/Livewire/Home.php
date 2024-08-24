@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -12,13 +13,19 @@ class Home extends Component
 {
     use WithPagination;
 
-    private function getProducts($sort, $selectedCategory, $search, $priceFilter)
+    private function getProducts($sort, $selectedCategory, $selectedBrand, $search, $priceFilter)
     {
         $query = Product::query();
 
         if ($selectedCategory) {
             $query->whereHas('categories', function ($query) use ($selectedCategory) {
                 $query->where('categories.slug', $selectedCategory);
+            });
+        }
+
+        if ($selectedBrand) {
+            $query->whereHas('brand', function ($query) use ($selectedBrand) {
+                $query->where('brands.description', $selectedBrand);
             });
         }
 
@@ -62,15 +69,19 @@ class Home extends Component
     {
         $sort = $request->input('sort');
         $selectedCategory = $request->input('category');
+        $selectedBrand = $request->input('brand');
         $search = $request->input('search');
         $priceFilter = $request->input('range');
-        $products = $this->getProducts($sort, $selectedCategory, $search, $priceFilter);
+        $products = $this->getProducts($sort, $selectedCategory, $selectedBrand, $search, $priceFilter);
         $categories = Category::all();
+        $brands = Brand::all();
         return view('livewire.home', [
             'products' => $products,
             'sort' => $sort,
             'selectedCategory' => $selectedCategory,
-            'categories' => $categories
+            'selectedBrand' => $selectedBrand,
+            'categories' => $categories,
+            'brands' => $brands
         ]);
     }
 }

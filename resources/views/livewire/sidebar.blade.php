@@ -14,13 +14,13 @@
         <div class="col-lg-12 col-mg-6"></div>
     </div>
     <div class="widget-category mb-30 rounded border-slate-200 shadow-md hidden md:block">
-        <h1 class="font-bold text-lg tracking-widest text-orange-500 mb-2 uppercase">Categories</h1>
+        <h1 class="font-bold text-lg tracking-widest text-orange-500 mb-2 uppercase">Brands</h1>
         <ul class="categories">
-            @foreach ($categories as $category)
+            @foreach ($brands as $brand)
                 <li>
-                    <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['category' => $category->slug])) }}"
-                       class="{{ $selectedCategory === $category->slug ? 'active' : '' }} font-semibold">
-                        {{ ucfirst($category->name) }}
+                    <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['brand' => $brand->description])) }}"
+                       class="{{ $selectedBrand === $brand->description ? 'active' : '' }} font-semibold">
+                        {{ ucfirst($brand->name) }}
                     </a>
                 </li>
             @endforeach
