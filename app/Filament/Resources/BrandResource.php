@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryResource\Pages;
-use App\Models\Category;
+use App\Filament\Resources\BrandResource\Pages;
+use App\Models\Brand;
 use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -11,9 +11,9 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class CategoryResource extends Resource
+class BrandResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Brand::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
@@ -69,9 +69,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListBrands::route('/'),
+            'create' => Pages\CreateBrand::route('/create'),
+            'edit' => Pages\EditBrand::route('/{record}/edit'),
         ];
     }
 }

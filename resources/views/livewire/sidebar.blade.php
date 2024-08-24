@@ -15,7 +15,7 @@
     </div>
     <div class="widget-category mb-30 rounded border-slate-200 shadow-md hidden md:block">
         <h1 class="font-bold text-lg tracking-widest text-orange-500 mb-2 uppercase">Brands</h1>
-        <ul class="categories">
+        <ul class="brands">
             @foreach ($brands as $brand)
                 <li>
                     <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['brand' => $brand->description])) }}"

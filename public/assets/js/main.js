@@ -347,9 +347,9 @@
     $(function() {
         sliderrange.slider({
             range: true,
-            min: 16,
-            max: 400,
-            values: [0, 300],
+            min: 1,
+            max: 5000,
+            values: [0, 1500],
             slide: function(event, ui) {
                 amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
             }

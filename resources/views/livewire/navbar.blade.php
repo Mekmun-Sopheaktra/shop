@@ -1,5 +1,4 @@
 <div class="nav-mobile navbar">
-
         <div class="hamburger-menu">
             <span class="hamburger-icon"></span>
             <span class="hamburger-icon"></span>
@@ -8,8 +7,8 @@
         Menu
 </div>
 
-<div class="navbar-container">
-    <ul class="navbar gap-2">
+<div class="navbar-container navbar">
+    <ul class="d-flex gap-2">
         @foreach ($categories as $category)
             <li>
                 <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['category' => $category->slug])) }}"

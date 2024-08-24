@@ -29,6 +29,7 @@ use App\Filament\Resources\ProductResource\Pages\CreateProduct;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 use App\Filament\Resources\CategoryResource\RelationManagers\CategoriesRelationManager;
+use App\Filament\Resources\BrandResource\RelationManagers\BrandsRelationManager;
 
 class ProductResource extends Resource
 {
@@ -116,7 +117,9 @@ class ProductResource extends Resource
                 Forms\Components\CheckboxList::make('categories')
                     ->columnSpan('full')
                     ->relationship('categories', 'name'),
-
+                Forms\Components\CheckboxList::make('brands')
+                    ->columnSpan('full')
+                    ->relationship('brand', 'name'),
             ]);
     }
 
@@ -151,7 +154,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            CategoriesRelationManager::class,
+            BrandsRelationManager::class,
         ];
     }
 
