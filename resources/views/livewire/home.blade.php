@@ -1,6 +1,7 @@
 <x-app-layout>
-    <section class="mt-50 mb-50">
-        <div class="container">
+    <section class="mb-50">
+        @include('livewire.navbar')
+        <div class="mt-25 container">
             <div class="row">
                 @include('livewire.sidebar')
                 <div class="col-lg-9">
