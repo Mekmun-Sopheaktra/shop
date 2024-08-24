@@ -12,7 +12,7 @@
                                     <div class="product-image-slider">
                                         @foreach ($product->images as $img)
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('storage/'.$img) }}" alt="product image">
+                                                <img src="{{ asset('storage/'.$img) }}" alt="product image" class="mx-auto">
                                             </figure>
                                         @endforeach
                                     </div>
@@ -51,16 +51,6 @@
                                         </ul>
                                     </div>
                                     <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-                                    <div class="detail-extralink">
-                                        <div class="product-extra-link2">
-                                            <form action="{{ route('cart.add') }}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button type="submit" class="button button-add-to-cart">
-                                                    Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
                                     <ul class="product-meta font-xs color-grey mt-50">
                                         <li class="mb-5"><a href="#">{{ $product->SKU }}</a></li>
                                         <li class="mb-5">Tags:

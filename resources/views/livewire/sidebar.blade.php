@@ -13,22 +13,22 @@
         </div>
         <div class="col-lg-12 col-mg-6"></div>
     </div>
-    <div class="widget-category mb-30 rounded-3xl border-slate-200  shadow-md">
+    <div class="widget-category mb-30 rounded border-slate-200 shadow-md hidden md:block">
         <h1 class="font-bold text-lg tracking-widest text-orange-500 mb-2 uppercase">Categories</h1>
         <ul class="categories">
             @foreach ($categories as $category)
                 <li>
                     <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['category' => $category->slug])) }}"
-                        class="{{ $selectedCategory === $category->slug ? 'active' : '' }} font-semibold">
+                       class="{{ $selectedCategory === $category->slug ? 'active' : '' }} font-semibold">
                         {{ ucfirst($category->name) }}
                     </a>
                 </li>
             @endforeach
-
         </ul>
     </div>
-    <!-- Fillter By Price -->
-    <div class="sidebar-widget price_range range mb-30 rounded-3xl border-slate-200 shadow-md" style="border-radius: 30px">
+
+    <!-- Filter By Price -->
+    <div class="sidebar-widget price_range range mb-30 rounded border-slate-200 shadow-md hidden md:block" style="border-radius: 30px">
         <h1 class="font-bold text-lg tracking-widest text-orange-500 mb-4 uppercase">Filter by price</h1>
         <div class="price-filter">
             <form action="{{ url()->current() }}">
@@ -47,4 +47,5 @@
             </form>
         </div>
     </div>
+
 </div>

@@ -41,9 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/dashboard/invoice/{order}', [Dashboard::class, 'invoice'])->name('invoice');
-    Route::get('/dashboard/invoice/pdf/{order}', [Dashboard::class, 'invoicePdf'])->name('invoice.pdf');
-    Route::get('/dashboard', [Dashboard::class, 'render'])->name('dashboard');
+//    Route::get('/dashboard/invoice/{order}', [Dashboard::class, 'invoice'])->name('invoice');
+//    Route::get('/dashboard/invoice/pdf/{order}', [Dashboard::class, 'invoicePdf'])->name('invoice.pdf');
+//    Route::get('/dashboard', [Dashboard::class, 'render'])->name('dashboard');
 });
 
 
