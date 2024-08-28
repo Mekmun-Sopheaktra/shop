@@ -166,6 +166,9 @@
             margin: 25px 150px 0;
             justify-content: flex-start;
         }
+        .filter-container {
+            display: none;
+        }
         .nav-mobile {
             display: none;
         }
