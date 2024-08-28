@@ -8,7 +8,7 @@
 </div>
 
 <div class="navbar-container navbar">
-    <ul class="d-flex gap-2">
+    <ul class="navbar-item gap-2">
         @foreach ($categories as $category)
             <li>
                 <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['category' => $category->slug])) }}"
@@ -66,6 +66,12 @@
 
     /* Mobile Styles */
     @media (max-width: 768px) {
+        .navbar-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
         .nav-mobile {
             display: flex;
             margin-top: 24px;
@@ -98,6 +104,9 @@
     }
 
     @media (min-width: 769px) {
+        .navbar-item {
+            display: flex;
+        }
         .navbar-container {
             margin: 25px 150px 0;
             justify-content: flex-start;
