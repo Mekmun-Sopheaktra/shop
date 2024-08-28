@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Home::class, 'render'])->name('home');
 //404
-Route::get('/404', function () {
-    return view('layouts.404');
-})->name('404');
+//Route::get('/404', function () {
+//    return view('layouts.404');
+//})->name('404');
 
 Route::get('/product/{product_id}', [ProductDetails::class, 'render'])->name('product.details');
 
