@@ -3972,6 +3972,7 @@ table .product-thumbnail img {
 
 .shop-product-fillter .sort-by-product-area .sort-by-cover {
   position: relative;
+    width: 100%;
 }
 
 .shop-product-fillter .sort-by-product-area .sort-by-product-wrap {
