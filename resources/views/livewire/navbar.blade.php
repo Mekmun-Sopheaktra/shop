@@ -1,13 +1,28 @@
-<div class="nav-mobile navbar">
-        <div class="hamburger-menu">
-            <span class="hamburger-icon"></span>
-            <span class="hamburger-icon"></span>
-            <span class="hamburger-icon"></span>
+<div class="d-flex gap-2">
+    <div class="d-flex w-100">
+        <div class="nav-mobile navbar">
+            <div class="hamburger-menu">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </div>
+            Menu
         </div>
-        Menu
+    </div>
+
+    <div class="d-flex w-100">
+        <div class="nav-mobile-filter navbar">
+            <div class="hamburger-menu">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </div>
+            Brand
+        </div>
+    </div>
 </div>
 
-<div class="navbar-container navbar">
+<div class="navbar-container navbar mt-2">
     <ul class="navbar-item gap-2">
         @foreach ($categories as $category)
             <li>
@@ -19,17 +34,41 @@
         @endforeach
     </ul>
 </div>
-
+<div class="filter-container navbar mt-2">
+    <ul class="navbar-item gap-2">
+        @foreach ($brands as $brand)
+            <li>
+                <a href="{{ url()->current() }}?{{ http_build_query(array_merge(request()->query(), ['brand' => $brand->description])) }}"
+                   class="font-semibold">
+                    {{ ucfirst($brand->name) }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const hamburgerMenu = document.querySelector('.nav-mobile');
         const navbarContainer = document.querySelector('.navbar-container');
+        const filterMenu = document.querySelector('.nav-mobile-filter');
+        const filterContainer = document.querySelector('.filter-container');
+
+        function toggleActive(element) {
+            element.classList.toggle('active');
+        }
 
         hamburgerMenu.addEventListener('click', function () {
-            navbarContainer.classList.toggle('active');
+            toggleActive(navbarContainer);
+            filterContainer.classList.remove('active'); // Ensure the filter container is closed
+        });
+
+        filterMenu.addEventListener('click', function () {
+            toggleActive(filterContainer);
+            navbarContainer.classList.remove('active'); // Ensure the navbar container is closed
         });
     });
 </script>
+
 
 <style lang="scss">
     .navbar {
@@ -75,6 +114,12 @@
         .nav-mobile {
             display: flex;
             margin-top: 24px;
+            width: 100%;
+        }
+        .nav-mobile-filter {
+            display: flex;
+            margin-top: 24px;
+            width: 100%;
         }
         .navbar-container {
             display: none; /* Initially hide the navbar */
@@ -83,6 +128,16 @@
         }
 
         .navbar-container.active {
+            display: flex;
+        }
+
+        .filter-container {
+            display: none; /* Initially hide the navbar */
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filter-container.active {
             display: flex;
         }
 
