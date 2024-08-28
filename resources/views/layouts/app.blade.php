@@ -10,7 +10,7 @@
     <meta property="og:title" content="{{ config('app.name', 'Laravel') }}">
     <meta property="og:type" content="shop">
     <meta property="og:url" content="https://shop.mekmunsopheaktra.com/">
-    <meta property="og:image" content="{{ asset('assets/imgs/logo/logo.png') }}">
+    <meta property="og:image" content="https://mekmunsopheaktra.com/assets/img/root/favicon.png" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
