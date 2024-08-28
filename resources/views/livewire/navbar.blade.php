@@ -172,5 +172,8 @@
         .nav-mobile {
             display: none;
         }
+        .nav-mobile-filter {
+            display: none;
+        }
     }
 </style>
